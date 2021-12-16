@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Net.Http.Headers;
 using Shop.Client.ApiServices;
+using System;
 
 namespace Shop.Client
 {
@@ -45,6 +47,15 @@ namespace Shop.Client
 
                 options.GetClaimsFromUserInfoEndpoint = true;
 
+            });
+
+            //services.AddTransient<AuthenticationDelegatingHandler>();
+
+            services.AddHttpClient("ProductAPIClient", client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:5000/api/v1/");
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
             });
         }
 

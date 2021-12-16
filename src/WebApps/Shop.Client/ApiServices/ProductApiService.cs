@@ -12,7 +12,7 @@ namespace Shop.Client.ApiServices
     public class ProductApiService : IProductApiService
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        //private readonly IHttpContextAccessor _httpContextAccessor;
 
         public ProductApiService(IHttpClientFactory httpClientFactory, IHttpContextAccessor httpContextAccessor)
         {
