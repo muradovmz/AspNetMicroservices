@@ -24,7 +24,7 @@ namespace Catalog.API.Controllers
             _logger = logger;
         }
 
-        [Authorize("ClientIdPolicy")]
+        //[Authorize("ClientIdPolicy")]
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
